@@ -22,7 +22,7 @@ class SubCategoriesController {
     }
 
     find(req : Request, res : Response, next : NextFunction){
-        SubCategory.find({slug : req.params.id})
+        SubCategory.find({slug : req.params.id}).populate('_category')
         .then(doc => {
             this.subcategory = doc;
             next();
@@ -41,7 +41,7 @@ class SubCategoriesController {
             page: Number(req.query.page) || 1,
             limit: Number(req.query.limit) || 5,
             sort: {'_id': -1}
-        })
+        });
 
         res.json(subcategories)
     }
@@ -55,7 +55,7 @@ class SubCategoriesController {
     }
 
     show(req : Request, res : Response){
-        res.json(this.subcategory)
+        res.json(this.subcategory);
     }
 
     async update(req : Request, res : Response){

@@ -6,6 +6,7 @@ import cors from 'cors';
 
 import mainRoutes from './routes/main';
 import slideRoutes from './routes/slide';
+import bannerRoutes from './routes/banner';
 import templateRoutes from './routes/template';
 import categoriesRoutes from './routes/categories';
 import subcategoriesRoutes from './routes/subcategories';
@@ -39,6 +40,7 @@ export default class Server {
         this.app.use( mainRoutes );
         this.app.use( '/slide', slideRoutes );
         this.app.use( '/template', templateRoutes );
+        this.app.use( '/banner', bannerRoutes );
         this.app.use( '/categories', categoriesRoutes );
         this.app.use( '/subcategories', subcategoriesRoutes );
         this.app.use( '/products', productsRoutes );

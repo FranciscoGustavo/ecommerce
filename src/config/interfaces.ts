@@ -63,3 +63,12 @@ export interface IFTemplate {
     socialNetwork ?: JSON,
     updated_at ?: Date,
 } 
+
+export interface IFBanner {
+    route : string,
+    image : string,
+    titleOne : string,
+    titleTwo : string,
+    titleThree : string,
+    style : string
+}
